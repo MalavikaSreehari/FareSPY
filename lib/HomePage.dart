@@ -1,3 +1,4 @@
+import 'package:farespy/login.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,69 +11,64 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment:MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           
-              Image.asset(
+            Image.asset(
               'assets/images/logo.jpeg',
-          width:300,
-          height: 350,
-        ),
-        SizedBox(
-    height: 40,
-  ),
-              Container(
-  width: 200,
-  height: 35,
-  decoration: BoxDecoration(
-  
-    borderRadius: BorderRadius.circular(20),
-    color: Color(0xff93C561),
-  ),
-          
-  child: Center(
-    child: Text(
-    'Login',
-    style: TextStyle(
-        color: Colors.white,
-        fontSize: 20,
-    ),
-    ),
-    
-  ),
- 
-),
- SizedBox(
-    height: 20,
-  ),
-  Container(
-  width: 200,
-  height: 35,
-  decoration: BoxDecoration(
-  
-    borderRadius: BorderRadius.circular(20),
-    color: Color(0xff258EAB),
-  ),
-          
-  child: Center(
-    child: Text(
-    'Sign Up',
-    style: TextStyle(
-        color: Colors.white,
-        fontSize: 20,
-    ),
-    ),
-    
-  ),
-),  
-              
+              width: 300,
+              height: 350,
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              width: 200,
+              height: 35,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Color(0xff93C561),
+              ),
+              child: Center(
+                child: TextButton(
+                  onPressed: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const Login()),
+  );
+},
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: 200,
+              height: 35,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Color(0xff258EAB),
+              ),
+              child: Center(
+                child: Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ),
           ],
-          
-          
         ),
       ),
-
-  
-     );
+    );
   }
 }
