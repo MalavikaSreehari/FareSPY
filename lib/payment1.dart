@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class PaymentOne extends StatelessWidget {
   const PaymentOne({super.key});
@@ -13,7 +11,7 @@ class PaymentOne extends StatelessWidget {
             Container(
               color: const Color(0xFF93C561),
               width: double.infinity,
-              height: 80,
+              height: 100,
             ),
             const Text(
               'Fare',
@@ -21,7 +19,7 @@ class PaymentOne extends StatelessWidget {
             ),
             const Divider(
               color: Color(0xFF93C561),
-              thickness: 2,
+              thickness: 3,
             ),
             Row(
               children: const [
@@ -68,15 +66,12 @@ class PaymentOne extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 50, // Set the width of the divider
-                  child: VerticalDivider(
-                    color: Color(0xFF93C561),
-                    thickness: 3,
-                  ),
+                const VerticalDivider(
+                  thickness: 3,
                 ),
                 Column(
                   children: const [
+                    Padding(padding: EdgeInsets.only(top: 5)),
                     Text(
                       'Fare',
                       style: TextStyle(fontSize: 15),
@@ -99,6 +94,7 @@ class PaymentOne extends StatelessWidget {
             ),
             const Divider(
               color: Color(0xFF93C561),
+              thickness: 2,
             ),
             Row(
               children: const [
@@ -106,7 +102,7 @@ class PaymentOne extends StatelessWidget {
                   padding: EdgeInsets.only(left: 100.0),
                 ),
                 Image(
-                  image: AssetImage('assets/images/road_icon.png'),
+                  image: AssetImage('assets/images/waiting_icon.png'),
                   width: 50,
                 ),
                 Text(
@@ -182,7 +178,8 @@ class PaymentOne extends StatelessWidget {
               children: const [
                 Padding(padding: EdgeInsets.only(left: 60)),
                 Image(
-                  image: AssetImage('assets/images/road_icon.png'),
+                  image: AssetImage('assets/images/total_cost_icon.png'),
+                  width: 100,
                 ),
                 Text(
                   'Total Fare',
@@ -197,19 +194,25 @@ class PaymentOne extends StatelessWidget {
                   fontSize: 50,
                   fontWeight: FontWeight.bold),
             ),
+            const Padding(padding: EdgeInsets.only(top: 20)),
             ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                fixedSize: MaterialStateProperty.all<Size>(const Size(200, 60)),
-                backgroundColor:
-                    MaterialStateProperty.all(const Color(0xFF258EAB)),
-              ),
-              child: const Text(
-                'Pay',
-                style: TextStyle(fontSize: 30),
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(top: 100)),
+  onPressed: () {},
+  style: ButtonStyle(
+    fixedSize: MaterialStateProperty.all<Size>(const Size(200, 60)),
+    backgroundColor: MaterialStateProperty.all(const Color(0xFF258EAB)),
+    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(60.0),
+      ),
+    ),
+  ),
+  child: const Text(
+    'Pay',
+    style: TextStyle(fontSize: 30),
+  ),
+),
+
+            const Padding(padding: EdgeInsets.only(top: 44-7.9)),
             Container(
               color: const Color(0xFF93C561),
               width: double.infinity,
