@@ -25,7 +25,9 @@ class PaymentOne extends StatelessWidget {
             ),
             Row(
               children: const [
-        
+                Padding(
+                  padding: EdgeInsets.only(left: 100.0),
+                ),
                 Image(
                   image: AssetImage('assets/images/road_icon.png'),
                   width: 50,
