@@ -18,37 +18,128 @@ class Login extends StatelessWidget {
           width:80,
           height: 80,
         ),
-        Align(
-          alignment: Alignment.center,
+        Padding(
+          padding: const EdgeInsets.only(left:50,top:60),
           child: Container(
-
-              width: 200,
-          height: 200,
+              width: 300,
+          height: 400,
           decoration: BoxDecoration(
-            color: const Color(0xff258EAB),
-            borderRadius: BorderRadius.circular(30),
+            color: Color(0xff258EAB),
+            borderRadius: BorderRadius.circular(25),
           ),
-          child: const Center(
-            child: Text(
-              'Login',
-              style: TextStyle(
-          color: Colors.black,
-          fontSize: 24,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:[
+               Text('Login',
+               style: TextStyle(
+          color: Colors.white,
+          fontSize: 28,
           fontWeight: FontWeight.bold,
+          
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(bottom:28),
+               ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(25.0),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey.withOpacity(0.2),
+        
+        offset: Offset(0, 3),
+      ),
+    ],
+  ),
+              child: TextFormField(
+                      decoration: InputDecoration(
+              labelText: 'Username',
+              border: InputBorder.none,  
+              hintText: 'Enter your username', 
+                      )
+                
+                    ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom:28),
+               ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(25.0),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.grey.withOpacity(0.2),
+        
+        offset: Offset(0, 3),
+      ),
+    ],
+  ),
+              child: TextFormField(
+                      decoration: InputDecoration(
+              labelText: 'Password',
+              border: InputBorder.none,  
+              hintText: 'Enter your Password', 
+                      )
+                
+                    ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom:28),
+               ),
+            Container(
+              width: 150,
+              height: 45,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color:  Colors.white,
+              ),
+              child: TextButton(onPressed: ()
+              {}, child: Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Color(0xff258EAB),
+                        fontSize: 20,
+                      ),
+                    ),),
+            ),
+            Text('Do not have an account',
+            style: TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+          
+              ),
+              ),
+              Text('SignUp',
+            style: TextStyle(
+          color: Color(0xff93C561),
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+          
+              ),
+              ),
+          
+            ], 
+            
+  
+     
+    
+
+            
+          )
           ),
           
-          //text
-          //textformfield
-         
         ),
+          ]
         )
         
-        
-        ]
-        )
-      ); 
+    );
+      
     
   }
 }
