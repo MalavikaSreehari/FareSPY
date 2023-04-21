@@ -1,4 +1,5 @@
 import 'package:farespy/HomePage.dart';
+import 'package:farespy/auto.dart';
 import 'package:flutter/material.dart';
 import 'package:farespy/payment1.dart';
 
