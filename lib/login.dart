@@ -18,27 +18,30 @@ class Login extends StatelessWidget {
           width:80,
           height: 80,
         ),
-        Container(
-            width: 200,
-  height: 200,
-  decoration: BoxDecoration(
-    color: Color(0xff258EAB),
-    borderRadius: BorderRadius.circular(30),
-  ),
-  child: Center(
-    child: Text(
-      'Login',
-      style: TextStyle(
-        color: Colors.white,
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  ),
-  //text
-  //textformfield
- 
-)
+        Align(
+          alignment: Alignment.center,
+          child: Container(
+              width: 200,
+          height: 200,
+          decoration: BoxDecoration(
+            color: Color(0xff258EAB),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Center(
+            child: Text(
+              'Login',
+              style: TextStyle(
+          color: Colors.white,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          //text
+          //textformfield
+         
+        ),
+        )
         
         
         ]
