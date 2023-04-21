@@ -21,22 +21,24 @@ class Login extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: Container(
+
               width: 200,
           height: 200,
           decoration: BoxDecoration(
-            color: Color(0xff258EAB),
+            color: const Color(0xff258EAB),
             borderRadius: BorderRadius.circular(30),
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               'Login',
               style: TextStyle(
-          color: Colors.white,
+          color: Colors.black,
           fontSize: 24,
           fontWeight: FontWeight.bold,
               ),
             ),
           ),
+          
           //text
           //textformfield
          
