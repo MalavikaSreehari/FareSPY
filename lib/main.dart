@@ -1,7 +1,7 @@
 import 'package:farespy/HomePage.dart';
 import 'package:farespy/auto.dart';
 import 'package:flutter/material.dart';
-import 'package:farespy/payment1.dart';
+import 'package:farespy/paymentone.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage()
+
     );
   }
 }

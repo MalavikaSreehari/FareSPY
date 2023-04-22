@@ -18,50 +18,50 @@ class HomePage extends StatelessWidget {
               width: 300,
               height: 350,
             ),
-            SizedBox(
-              height: 40,
+            const SizedBox(
+              height: 50,
             ),
             Container(
-              width: 200,
-              height: 35,
+              width: 300,
+              height: 60,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color(0xff93C561),
+                borderRadius: BorderRadius.circular(60),
+                color: const Color(0xff93C561),
               ),
               child: Center(
                 child: TextButton(
                   onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const Login()),
-  );
-},
-                  child: Text(
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Login()),
+                    );
+                  },
+                  child: const Text(
                     'Login',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 32,
                     ),
                   ),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
-              width: 200,
-              height: 35,
+              width: 300,
+              height: 60,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Color(0xff258EAB),
+                borderRadius: BorderRadius.circular(60),
+                color: const Color(0xff258EAB),
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Sign Up',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 32,
                   ),
                 ),
               ),
