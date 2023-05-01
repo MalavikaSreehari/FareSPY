@@ -1,5 +1,6 @@
 import 'package:farespy/initial_page.dart';
 import 'package:farespy/auto.dart';
+import 'package:farespy/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:farespy/paymentone.dart';
 
@@ -16,7 +17,6 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: InitialPage()
-
     );
   }
 }
