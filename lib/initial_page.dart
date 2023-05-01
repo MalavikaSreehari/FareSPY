@@ -4,8 +4,8 @@ import 'package:farespy/login.dart';
 import 'package:farespy/map.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({
+class InitialPage extends StatelessWidget {
+  const InitialPage({
     Key? key,
   }) : super(key: key);
 
@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const MapScreen()),
+                      MaterialPageRoute(builder: (context) => const Login()),
                     );
                   },
                   child: const Text(
