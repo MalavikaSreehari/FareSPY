@@ -1,3 +1,4 @@
+import 'package:farespy/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -99,7 +100,12 @@ class Login extends StatelessWidget {
                 color:  Colors.white,
               ),
               child: TextButton(onPressed: ()
-              {}, child: Text(
+              {
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+              }, child: Text(
                       'Login',
                       style: TextStyle(
                         color: Color(0xff258EAB),
