@@ -1,9 +1,9 @@
 import 'package:farespy/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUp extends StatelessWidget {
   static const  String idScreen = "signUp";
@@ -174,7 +174,10 @@ class SignUp extends StatelessWidget {
                 
                   child: TextButton(onPressed: ()
                   {
-                    
+                    if(nameTextEditingController.text.length<4){
+                      
+                    }
+                    registerNewUser(context);
                   }, child: Text(
                           'SIGN UP',
                           style: TextStyle(
@@ -222,7 +225,20 @@ class SignUp extends StatelessWidget {
     );
   }
 
+final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;  
+void registerNewUser(BuildContext context) async{
+  final User? user = (await _firebaseAuth.createUserWithEmailAndPassword(email: emailTextEditingController.text, password: passwordTextEditingController.text)).user;
+    if(user != null) {
+    // user registration successful, do something
+  } else {
+    // user registration failed, handle the error
+  }
+
+}
   
 
 
+}
+displayToastMessage(String message,BuildContext context){
+  Fluttertoast.showToast(msg: message);
 }
