@@ -1,15 +1,19 @@
+import 'package:farespy/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignUp extends StatelessWidget {
+  static const  String idScreen = "signUp";
+  TextEditingController nameTextEditingController = TextEditingController();
+  TextEditingController emailTextEditingController = TextEditingController();
+  TextEditingController passwordTextEditingController = TextEditingController();
+  
 
-  @override
-  State<SignUp> createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
+  SignUp({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +68,7 @@ class _SignUpState extends State<SignUp> {
           ],
         ),
                 child: TextFormField(
+                  controller: nameTextEditingController,
                         decoration: InputDecoration(
                 labelText: 'Username',
                 border: InputBorder.none,  
@@ -91,6 +96,7 @@ class _SignUpState extends State<SignUp> {
           ],
         ),
          child: TextFormField(
+          controller: emailTextEditingController,
                         decoration: InputDecoration(
                 labelText: 'Email Id',
                 border: InputBorder.none,  
@@ -118,6 +124,7 @@ class _SignUpState extends State<SignUp> {
           ],
         ),
                 child: TextFormField(
+                  controller: passwordTextEditingController,
                         decoration: InputDecoration(
                 labelText: 'Password',
                 border: InputBorder.none,  
@@ -166,7 +173,9 @@ class _SignUpState extends State<SignUp> {
                 ),
                 
                   child: TextButton(onPressed: ()
-                  {}, child: Text(
+                  {
+                    
+                  }, child: Text(
                           'SIGN UP',
                           style: TextStyle(
                             color: Color(0xff93C561),
@@ -183,13 +192,17 @@ class _SignUpState extends State<SignUp> {
             
                 ),
                 ),
-                Text('Log In',
-              style: TextStyle(
-            color: Color(0xff258EAB),
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            
-                ),
+                TextButton(onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(context, Login.idScreen, (route) => false);
+                },
+                  child: Text('Log In',
+                              style: TextStyle(
+                            color: Color(0xff258EAB),
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                            
+                  ),
+                  ),
                 ),
             
               ], 
@@ -208,4 +221,8 @@ class _SignUpState extends State<SignUp> {
       )
     );
   }
+
+  
+
+
 }
