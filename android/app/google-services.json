@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "284743727304",
+    "project_id": "farespy-de2b6",
+    "storage_bucket": "farespy-de2b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284743727304:android:85b9415940510e0a9e8dfd",
+        "android_client_info": {
+          "package_name": "com.malavika.farespy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284743727304-mo38nfogeodc1ljkroekee5htjuv66h6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDTTYgzD_cjjB4nBlATUVcLtR_XVMgo2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284743727304-mo38nfogeodc1ljkroekee5htjuv66h6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

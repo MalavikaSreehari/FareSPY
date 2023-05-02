@@ -1,9 +1,11 @@
 import 'package:farespy/home_page.dart';
+import 'package:farespy/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class Login extends StatelessWidget {
+  static const  String idScreen = "login";
   const Login({Key? key}) : super(key: key);
 
   @override
@@ -121,13 +123,17 @@ class Login extends StatelessWidget {
           
               ),
               ),
-              Text('SignUp',
-            style: TextStyle(
-          color: Color(0xff93C561),
-          fontSize: 16,
-          fontWeight: FontWeight.normal,
-          
-              ),
+              TextButton(onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(context, SignUp.idScreen, (route) => false);
+              },
+                child: Text('SignUp',
+                          style: TextStyle(
+                        color: Color(0xff93C561),
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        
+                ),
+                ),
               ),
           
             ], 
