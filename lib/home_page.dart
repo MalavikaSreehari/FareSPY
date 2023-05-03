@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class HomePage extends StatelessWidget {
+  static const  String idScreen = "home";
   const HomePage({super.key});
 
   @override
