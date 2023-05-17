@@ -126,7 +126,7 @@ class Login extends StatelessWidget {
                       color: Colors.white,
                     ),
                     child: TextButton(
-                      onPressed: () {
+                      onPressed: () async {
             
                         // if (!emailTextEditingController.text.contains("@")) {
                         //   displayToastMessage(
@@ -134,13 +134,47 @@ class Login extends StatelessWidget {
                         // } else if (passwordTextEditingController.text.isEmpty) {
                         //   displayToastMessage("Password is required.", context);
                         // } else {
-                        if (_formKey.currentState!.validate())  
-                          loginAndAuthenticateUser(context);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
-                          );
-                        // }
+                        // if (_formKey.currentState!.validate())  
+                        //   loginAndAuthenticateUser(context);
+                        //   Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(builder: (context) => HomePage()),
+                        //   );
+                        // // }
+                        if (_formKey.currentState!.validate()) {
+  try {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailTextEditingController.text,
+      password: passwordTextEditingController.text,
+    );
+    
+    Navigator.pushNamed(context, HomePage.idScreen);
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Invalid email or password.'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to sign in.'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Failed to sign in.'),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
+}
+
                       },
                       child: Text(
                         'Login',
