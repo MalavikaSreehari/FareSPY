@@ -1,8 +1,13 @@
+import 'dart:collection';
+
 import 'package:farespy/login.dart';
+import 'package:farespy/map.dart';
+import 'package:farespy/signup.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({
+class InitialPage extends StatelessWidget {
+  static const  String idScreen = "initial";
+  const InitialPage({
     Key? key,
   }) : super(key: key);
 
@@ -33,7 +38,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const Login()),
+                      MaterialPageRoute(builder: (context) => Login()),
                     );
                   },
                   child: const Text(
@@ -56,12 +61,17 @@ class HomePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(60),
                 color: const Color(0xff258EAB),
               ),
-              child: const Center(
-                child: Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
+              child: Center(
+                child: TextButton(onPressed: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUp()),
+                    );},
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 32,
+                    ),
                   ),
                 ),
               ),

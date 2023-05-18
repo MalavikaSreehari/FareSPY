@@ -4,6 +4,8 @@
         android:label="farespy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyDKT38k07YTPFa40RYBcvxqlXhwCpMKtmI"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
