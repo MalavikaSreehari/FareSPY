@@ -1,4 +1,4 @@
-import 'package:farespy/home_page.dart';
+import 'package:farespy/HomePage.dart';
 import 'package:farespy/initial_page.dart';
 import 'package:farespy/login.dart';
 import 'package:farespy/main.dart';
