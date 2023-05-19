@@ -1,21 +1,109 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:permission_handler/permission_handler.dart';
+
 
 class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
+  const MapScreen({Key? key}) : super(key: key);
+  static const String idScreen = "mapScreen";
 
   @override
   State<MapScreen> createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
-  late GoogleMapController mapController;
+  final Completer<GoogleMapController> _controllerGoogleMap =
+      Completer<GoogleMapController>();
+  late GoogleMapController newGoogleMapController;
+  late Position currentPosition;
+  var geolocator = Geolocator();
 
-  final LatLng _center = const LatLng(10.5276, 76.2144);
+  void locatePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if(!serviceEnabled){
+      showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text('Location Services Disabled'),
+        content: Text('Please enable location services to use this feature.'),
+        actions: [
+          TextButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
+    );
+      return;
+    }
+
+    permission = await Geolocator.checkPermission();
+  if (permission == LocationPermission.deniedForever) {
+    // Permission denied forever, show an error message or prompt the user to grant permissions
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text('Location Permissions Denied'),
+        content: Text('Please grant location permissions to use this feature.'),
+        actions: [
+          TextButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
+    );
+    return;
   }
+  
+  if (permission == LocationPermission.denied) {
+    // Permission denied, request permissions
+    permission = await Geolocator.requestPermission();
+    if (permission != LocationPermission.whileInUse && permission != LocationPermission.always) {
+      // Permission still not granted, show an error message or prompt the user to grant permissions
+      showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text('Location Permissions Denied'),
+          content: Text('Please grant location permissions to use this feature.'),
+          actions: [
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+  }
+    Position position =
+        await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    currentPosition = position;
+
+    LatLng latLangPosition = LatLng(position.latitude, position.longitude);
+
+    CameraPosition cameraPosition =
+        new CameraPosition(target: latLangPosition, zoom: 14);
+    newGoogleMapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+  }
+
+  static const CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +114,34 @@ class _MapScreenState extends State<MapScreen> {
         colorSchemeSeed: Colors.green[700],
       ),
       home: Scaffold(
-        // appBar: AppBar(
-        //   title: const Text('Maps Sample App'),
-        //   elevation: 2,
-        // ),
-        body: GoogleMap(
-          onMapCreated: _onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 11.0,
-          ),
+        body: Stack(
+          children: [
+            GoogleMap(
+              mapType: MapType.normal,
+              myLocationButtonEnabled: false,
+              onMapCreated: (GoogleMapController controller) {
+                _controllerGoogleMap.complete(controller);
+                newGoogleMapController = controller;
+                // locatePosition();
+              },
+              initialCameraPosition: _kGooglePlex,
+              myLocationEnabled: true,
+              zoomControlsEnabled: false,
+              zoomGesturesEnabled: true,
+            ),
+            Positioned(
+              bottom: 16.0,
+              right: 16.0,
+              child: FloatingActionButton(
+                onPressed: locatePosition,
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.my_location,
+                  color: Colors.blue,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
