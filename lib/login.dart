@@ -15,6 +15,8 @@ class Login extends StatelessWidget {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
   Login({Key? key}) : super(key: key);
+  
+  get usersRef => null;
 
   @override
   Widget build(BuildContext context) {
