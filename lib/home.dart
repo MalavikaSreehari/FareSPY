@@ -21,7 +21,7 @@ class UserHome extends StatelessWidget {
               height: 400,
             ),
           const SizedBox(
-            height: 100,
+            height: 50,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -117,14 +117,14 @@ class UserHome extends StatelessWidget {
                         Text(
                         'New',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           color: Color(0xFF258EAB)
                         ),
                       ),
                       Text(
                         'Route',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           color: Color(0xFF258EAB)
                         ),
                       ),

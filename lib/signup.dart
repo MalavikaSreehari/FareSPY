@@ -8,7 +8,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:email_validator/email_validator.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 
 // ignore: must_be_immutable
 class SignUp extends StatelessWidget {

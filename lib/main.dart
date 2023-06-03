@@ -1,5 +1,9 @@
+import 'package:farespy/HomePage.dart';
 import 'package:farespy/home.dart';
+import 'package:farespy/initial_page.dart';
 import 'package:farespy/login.dart';
+import 'package:farespy/paymentone.dart';
+import 'package:farespy/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UserHome()
+      home: HomePage()
 
     );
   }

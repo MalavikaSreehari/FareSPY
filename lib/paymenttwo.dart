@@ -31,14 +31,18 @@ class PaymentTwo extends StatelessWidget {
                 const SizedBox(
                   width: 50,
                 ),
-                Text(
+                const Text(
                   'Select UPI App',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 20,
+                    color: Colors.white,
                   ),
                 )
               ],
             ),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           const Text(
             'Total Fare',
@@ -71,7 +75,7 @@ class PaymentTwo extends StatelessWidget {
           const Text(
             'Choose to pay',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 20,
             ),
           ),
           const Divider(
@@ -84,7 +88,10 @@ class PaymentTwo extends StatelessWidget {
                 child: Row(
                   children: const [
                     SizedBox(
-                        width: 80,
+                      width: 10,
+                    ),
+                    SizedBox(
+                        width: 60,
                         child: Image(
                             image: AssetImage('assets/images/phonepe.png'))),
                     SizedBox(
@@ -93,7 +100,7 @@ class PaymentTwo extends StatelessWidget {
                     Text(
                       'PhonePe',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     )
                   ],
@@ -111,7 +118,7 @@ class PaymentTwo extends StatelessWidget {
                 child: Row(
                   children: const [
                     SizedBox(
-                        height: 80,
+                        height: 60,
                         child: Image(
                             image: AssetImage('assets/images/paytm.png'))),
                     SizedBox(
@@ -120,7 +127,7 @@ class PaymentTwo extends StatelessWidget {
                     Text(
                       'Paytm',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     )
                   ],
@@ -138,7 +145,7 @@ class PaymentTwo extends StatelessWidget {
                 child: Row(
                   children: const [
                     SizedBox(
-                        height: 80,
+                        height: 60,
                         child: Image(
                             image: AssetImage('assets/images/applepay.png'))),
                     SizedBox(
@@ -147,7 +154,7 @@ class PaymentTwo extends StatelessWidget {
                     Text(
                       'Apple Pay',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     )
                   ],
@@ -165,7 +172,7 @@ class PaymentTwo extends StatelessWidget {
                 child: Row(
                   children: const [
                     SizedBox(
-                        height: 80,
+                        height: 60,
                         child:
                             Image(image: AssetImage('assets/images/gpay.png'))),
                     SizedBox(
@@ -174,7 +181,7 @@ class PaymentTwo extends StatelessWidget {
                     Text(
                       'Google Pay',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     )
                   ],

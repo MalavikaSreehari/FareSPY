@@ -10,44 +10,10 @@ class PaymentOne extends StatelessWidget {
       body: Column(
         children: [
           Container(
+            height: 70,
+            width: MediaQuery.of(context).size.width,
             color: const Color(0xFF93C561),
-            width: double.infinity,
-            height: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  children: const [
-                    SizedBox(
-                        width: 60,
-                        child:
-                            Image(image: AssetImage('assets/images/tick.png'))),
-                    Text('Destination')
-                  ],
-                ),
-                Column(
-                  children: [
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Container(
-                      color: Colors.black,
-                      width: 120,
-                      height: 3,
-                    )
-                  ],
-                ),
-                Column(
-                  children: const [
-                    SizedBox(
-                        width: 60,
-                        child: Image(
-                            image: AssetImage('assets/images/circle.png'))),
-                    Text('Payment')
-                  ],
-                ),
-              ],
-            ),
+            child: const Image(image: AssetImage('assets/images/circle_tick.png')),
           ),
           const Text(
             'Fare',
@@ -202,7 +168,7 @@ class PaymentOne extends StatelessWidget {
               ),
               Text(
                 'Total Fare',
-                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -210,10 +176,10 @@ class PaymentOne extends StatelessWidget {
             '\u{20B9}${490.00}',
             style: TextStyle(
                 color: Color(0xFF258EAB),
-                fontSize: 48,
+                fontSize: 40,
                 fontWeight: FontWeight.bold),
           ),
-          const Padding(padding: EdgeInsets.only(top: 20)),
+          const Padding(padding: EdgeInsets.only(top: 10)),
           ElevatedButton(
             onPressed: () {},
             style: ButtonStyle(
@@ -244,11 +210,14 @@ class PaymentOne extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(padding: EdgeInsets.only(top: 44 - 7.9)),
-          Container(
-            color: const Color(0xFF93C561),
-            width: double.infinity,
-            height: 80,
+          const Padding(padding: EdgeInsets.only(top: 10)),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              color: const Color(0xFF93C561),
+              width: double.infinity,
+              height: 60-1.9,
+            ),
           ),
         ],
       ),
