@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:farespy/Assistants/asst_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -89,6 +90,7 @@ class _MapScreenState extends State<MapScreen> {
       return;
     }
   }
+  
     Position position =
         await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     currentPosition = position;
@@ -98,6 +100,9 @@ class _MapScreenState extends State<MapScreen> {
     CameraPosition cameraPosition =
         new CameraPosition(target: latLangPosition, zoom: 14);
     newGoogleMapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+
+    String address = await AssistantMethods.searchCoordinateAddress(position, context);
+    print("This is your address: " + address);
   }
 
   static const CameraPosition _kGooglePlex = CameraPosition(
