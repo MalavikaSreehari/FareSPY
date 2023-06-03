@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => AppData(),
-      child: MaterialApp(
+    // return ChangeNotifierProvider(
+    //   create: (context) => AppData(),
+      return MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: InitialPage.idScreen,
         routes: {
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
     
         },
         home: HomePage()
-      ),
+      //),
     );
   }
 }

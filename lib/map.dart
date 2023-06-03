@@ -101,8 +101,8 @@ class _MapScreenState extends State<MapScreen> {
         new CameraPosition(target: latLangPosition, zoom: 14);
     newGoogleMapController.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
 
-    String address = await AssistantMethods.searchCoordinateAddress(position, context);
-    print("This is your address: " + address);
+    // String address = await AssistantMethods.searchCoordinateAddress(position, context);
+    // print("This is your address: " + address);
   }
 
   static const CameraPosition _kGooglePlex = CameraPosition(
