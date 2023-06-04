@@ -1,7 +1,5 @@
 import 'package:farespy/map.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class HomePage extends StatelessWidget {
   static const  String idScreen = "home";
