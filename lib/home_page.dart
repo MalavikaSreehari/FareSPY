@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
                           onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => MapScreen()),
+                          MaterialPageRoute(builder: (context) => (FindRoute())),
                         );
                       }, child: 
                           Center(
