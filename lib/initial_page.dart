@@ -1,7 +1,5 @@
-import 'dart:collection';
 
 import 'package:farespy/login.dart';
-import 'package:farespy/map.dart';
 import 'package:farespy/signup.dart';
 import 'package:flutter/material.dart';
 

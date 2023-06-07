@@ -77,13 +77,15 @@ class SignUp extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child: TextFormField(
-                          keyboardType: TextInputType.text,
-                            controller: nameTextEditingController,
-                            decoration: InputDecoration(
-                              labelText: 'Username',
-                              border: InputBorder.none,
-                            )),
+                        child: SingleChildScrollView(
+                          child: TextFormField(
+                            keyboardType: TextInputType.text,
+                              controller: nameTextEditingController,
+                              decoration: InputDecoration(
+                                labelText: 'Username',
+                                border: InputBorder.none,
+                              )),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 28),
@@ -102,23 +104,25 @@ class SignUp extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child: TextFormField(
-                            keyboardType: TextInputType.emailAddress,
-                            controller: emailTextEditingController,
-                            validator:(value) {
-                              if (value == null || value.isEmpty) {
-                        return 'Please enter your email address';
-                      }
-                      if (!EmailValidator.validate(value)) {
-                        return 'Please enter a valid email address';
-                      }
-                      return null;
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Email Id',
-                              border: InputBorder.none,
-                            ),
-                            ),
+                        child: SingleChildScrollView(
+                          child: TextFormField(
+                              keyboardType: TextInputType.emailAddress,
+                              controller: emailTextEditingController,
+                              validator:(value) {
+                                if (value == null || value.isEmpty) {
+                          return 'Please enter your email address';
+                                              }
+                                              if (!EmailValidator.validate(value)) {
+                          return 'Please enter a valid email address';
+                                              }
+                                              return null;
+                              },
+                              decoration: InputDecoration(
+                                labelText: 'Email Id',
+                                border: InputBorder.none,
+                              ),
+                              ),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 28),
@@ -137,22 +141,24 @@ class SignUp extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child: TextFormField(
-                            obscureText: true,
-                            controller: passwordTextEditingController,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                        return 'Please enter a password';
-                      }
-                      if (value.length < 6) {
-                        return 'Password must be at least 6 characters long';
-                      }
-                      return null;
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Password',
-                              border: InputBorder.none,
-                            )),
+                        child: SingleChildScrollView(
+                          child: TextFormField(
+                              obscureText: true,
+                              controller: passwordTextEditingController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                          return 'Please enter a password';
+                                              }
+                                              if (value.length < 6) {
+                          return 'Password must be at least 6 characters long';
+                                              }
+                                              return null;
+                              },
+                              decoration: InputDecoration(
+                                labelText: 'Password',
+                                border: InputBorder.none,
+                              )),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 28),
@@ -164,23 +170,25 @@ class SignUp extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.white,
                         ),
-                        child: TextFormField(
-                          obscureText: true,
-                          validator: (value) {
-                             if (value == null || value.isEmpty) {
-                        return 'Please confirm your password';
-                      }
-                      if (value != passwordTextEditingController.text) {
-                        return 'Passwords do not match';
-                      }
-                      return null;
-                          },
-                            decoration: InputDecoration(
-                          labelText: '      Confirm Password',
-                          border: InputBorder.none,
-                          
-                          
-                        )),
+                        child: SingleChildScrollView(
+                          child: TextFormField(
+                            obscureText: true,
+                            validator: (value) {
+                               if (value == null || value.isEmpty) {
+                          return 'Please confirm your password';
+                                              }
+                                              if (value != passwordTextEditingController.text) {
+                          return 'Passwords do not match';
+                                              }
+                                              return null;
+                            },
+                              decoration: InputDecoration(
+                            labelText: '      Confirm Password',
+                            border: InputBorder.none,
+                            
+                            
+                          )),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 28),
@@ -233,6 +241,7 @@ class SignUp extends StatelessWidget {
                           ),
                         ),
                       ),
+                      SizedBox(height: 10.0,),
                       Text(
                         'Already have an account',
                         style: TextStyle(

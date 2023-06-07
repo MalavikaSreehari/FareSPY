@@ -1,7 +1,6 @@
+import 'package:farespy/findroute.dart';
 import 'package:farespy/map.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class HomePage extends StatelessWidget {
   static const  String idScreen = "home";
@@ -10,27 +9,113 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-                child: Container(
-                  decoration: BoxDecoration(color: Colors.green),
-                  child: TextButton(
-                    
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MapScreen()),
-                      );
-                    },
-                    child: const Text(
-                      'Go to Map',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 32,
-                      ),
-                    ),
-                  ),
-                ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 100,
+            ),
+            Image.asset(
+                'assets/images/logo.jpeg',
+                width: 350,
+                height: 400,
               ),
+            const SizedBox(
+              height: 100,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                 TextButton(
+                          onPressed: () {
+                        
+                      }, child: Column(
+                        children: [
+                          Container(
+                    width: 120,
+                    height: 140,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: const Color(0xFF258EAB),
+                        width: 3.0,
+                      ),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.9),
+                          spreadRadius: 3.0,
+                          blurRadius: 10.0,
+                          offset: const Offset(0, 3),
+                        )
+                      ]
+                    ),
+                    child: 
+                        Center(
+                          child: Text(
+                            'Start Ride',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Color(0xFF258EAB)
+                            ),
+                          ),
+                        ),
+                        
+                      
+                  ),
+      
+                        ],
+                      ),
+                        ),
+                  
+                
+                Container(
+                    width: 120,
+                    height: 140,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: const Color(0xFF258EAB),
+                        width: 3.0,
+                      ),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 3.0,
+                          blurRadius: 10.0,
+                          offset: const Offset(0, 3),
+                        )
+                      ]
+                    ),
+                    
+                    child: TextButton(
+                          onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => (FindRoute())),
+                        );
+                      }, child: 
+                          Center(
+                            child: Text(
+                            'Find Route',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Color(0xFF258EAB)
+                            ),
+                                                  ),
+                          ),
+                        
+                       
+                        ),
+                  ),
+                  
+              ],
+            )
+          ],
+        ),
+      ),
+      
     );
   }
 }

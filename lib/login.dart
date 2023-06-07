@@ -68,22 +68,24 @@ class Login extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child: TextFormField(
-                            controller: emailTextEditingController,
-                            keyboardType: TextInputType.emailAddress,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                      return "Email is required";
-                    } else if (!RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                        .hasMatch(value)) {
-                      return "Please enter a valid email address";
-                    }
-                    return null;
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Email',
-                              border: InputBorder.none,
-                            )),
+                        child: SingleChildScrollView(
+                          child: TextFormField(
+                              controller: emailTextEditingController,
+                              keyboardType: TextInputType.emailAddress,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                              return "Email is required";
+                                            } else if (!RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(value)) {
+                                              return "Please enter a valid email address";
+                                            }
+                                            return null;
+                              },
+                              decoration: InputDecoration(
+                                labelText: 'Email',
+                                border: InputBorder.none,
+                              )),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 28),
@@ -102,26 +104,28 @@ class Login extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child: TextFormField(
-                            controller: passwordTextEditingController,
-                            obscureText: true,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                      return "Password is required";
-                    } else if (value.length < 8) {
-                      return "Password must be at least 8 characters";
-                      }
-                      else if (value != passwordTextEditingController.text){
-                        return "Incorrect Password";
-                  
-                      }
-                    
-                    return null;
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Password',
-                              border: InputBorder.none,
-                            )),
+                        child: SingleChildScrollView(
+                          child: TextFormField(
+                              controller: passwordTextEditingController,
+                              obscureText: true,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                              return "Password is required";
+                                            } else if (value.length < 8) {
+                                              return "Password must be at least 8 characters";
+                                              }
+                                              else if (value != passwordTextEditingController.text){
+                          return "Incorrect Password";
+                                          
+                                              }
+                                            
+                                            return null;
+                              },
+                              decoration: InputDecoration(
+                                labelText: 'Password',
+                                border: InputBorder.none,
+                              )),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 28),
@@ -193,8 +197,9 @@ class Login extends StatelessWidget {
                           ),
                         ),
                       ),
+                      SizedBox(height: 10.0,),
                       Text(
-                        'Do not have an account',
+                        'Do not have an account?',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
