@@ -1,14 +1,9 @@
-import 'package:farespy/HomePage.dart';
-import 'package:farespy/initial_page.dart';
+import 'package:farespy/home_page.dart';
 import 'package:farespy/login.dart';
-import 'package:farespy/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 // ignore: must_be_immutable
 class SignUp extends StatelessWidget {
@@ -41,7 +36,7 @@ class SignUp extends StatelessWidget {
                 width: 300,
                 height: 500,
                 decoration: BoxDecoration(
-                  color: Color(0xff93C561),
+                  color: const Color(0xff93C561),
                   borderRadius: BorderRadius.circular(40),
                 ),
                 child: Form(
@@ -49,8 +44,8 @@ class SignUp extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top:10),
+                      const Padding(
+                        padding: EdgeInsets.only(top:10),
                         child: Text(
                           'Sign Up',
                           style: TextStyle(
@@ -60,20 +55,20 @@ class SignUp extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 22),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 22),
                       ),
                       Container(
                         width: 250,
                         height: 45,
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(25.0),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.2),
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ],
                         ),
@@ -81,26 +76,26 @@ class SignUp extends StatelessWidget {
                           child: TextFormField(
                             keyboardType: TextInputType.text,
                               controller: nameTextEditingController,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Username',
                                 border: InputBorder.none,
                               )),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 28),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 28),
                       ),
                       Container(
                         width: 250,
                         height: 45,
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(25.0),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.2),
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ],
                         ),
@@ -117,27 +112,27 @@ class SignUp extends StatelessWidget {
                                               }
                                               return null;
                               },
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Email Id',
                                 border: InputBorder.none,
                               ),
                               ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 28),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 28),
                       ),
                       Container(
                         width: 250,
                         height: 45,
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(25.0),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.2),
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ],
                         ),
@@ -154,14 +149,14 @@ class SignUp extends StatelessWidget {
                                               }
                                               return null;
                               },
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Password',
                                 border: InputBorder.none,
                               )),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 28),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 28),
                       ),
                       Container(
                         width: 250,
@@ -182,7 +177,7 @@ class SignUp extends StatelessWidget {
                                               }
                                               return null;
                             },
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                             labelText: '      Confirm Password',
                             border: InputBorder.none,
                             
@@ -190,13 +185,13 @@ class SignUp extends StatelessWidget {
                           )),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 28),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 28),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           width: 150,
                           height: 45,
                           decoration: BoxDecoration(
@@ -205,7 +200,7 @@ class SignUp extends StatelessWidget {
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.2),
-                                offset: Offset(0, 3),
+                                offset: const Offset(0, 3),
                               ),
                             ],
                           ),
@@ -231,7 +226,7 @@ class SignUp extends StatelessWidget {
                                 
                               // }
                             },
-                            child: Text(
+                            child: const Text(
                               'SIGN UP',
                               style: TextStyle(
                                 color: Color(0xff93C561),
@@ -241,8 +236,8 @@ class SignUp extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10.0,),
-                      Text(
+                      const SizedBox(height: 10.0,),
+                      const Text(
                         'Already have an account',
                         style: TextStyle(
                           color: Colors.white,
@@ -255,7 +250,7 @@ class SignUp extends StatelessWidget {
                           Navigator.pushNamedAndRemoveUntil(
                               context, Login.idScreen, (route) => false);
                         },
-                        child: Text(
+                        child: const Text(
                           'Log In',
                           style: TextStyle(
                             color: Color(0xff258EAB),
@@ -277,8 +272,9 @@ class SignUp extends StatelessWidget {
   void registerNewUser(BuildContext context) async {
     final User? user = (await _firebaseAuth.createUserWithEmailAndPassword(
             email: emailTextEditingController.text,
+            // ignore: body_might_complete_normally_catch_error
             password: passwordTextEditingController.text).catchError((errMsg){
-              displayToastMessage("Error: "+errMsg.toString(), context);
+              displayToastMessage("Error: $errMsg", context);
             }))
         .user;
     if (user != null) {
@@ -292,10 +288,13 @@ class SignUp extends StatelessWidget {
       };
 
       usersRef.child(user.uid).set(userDataMap);
+      // ignore: use_build_context_synchronously
       displayToastMessage("Your account has been created", context);
 
+      // ignore: use_build_context_synchronously
       Navigator.pushNamedAndRemoveUntil(context, HomePage.idScreen, (route) => false);
     } else {
+      // ignore: use_build_context_synchronously
       displayToastMessage("New user account has not been created", context);
     }
   }

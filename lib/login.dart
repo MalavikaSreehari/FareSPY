@@ -1,4 +1,4 @@
-import 'package:farespy/HomePage.dart';
+import 'package:farespy/home_page.dart';
 import 'package:farespy/main.dart';
 import 'package:farespy/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import 'HomePage.dart';
 
 class Login extends StatelessWidget {
   static const String idScreen = "login";

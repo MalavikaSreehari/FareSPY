@@ -1,4 +1,4 @@
-import 'package:farespy/HomePage.dart';
+import 'package:farespy/home_page.dart';
 import 'package:farespy/home.dart';
 import 'package:farespy/DataHandler/app_data.dart';
 import 'package:farespy/initial_page.dart';
@@ -7,8 +7,11 @@ import 'package:farespy/paymentone.dart';
 import 'package:farespy/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:farespy/paymentone.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
         HomePage.idScreen:(context) => HomePage(),
 
       },
-      home: HomePage()
+      home: const InitialPage()
     );
   }
 }
