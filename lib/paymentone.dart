@@ -1,12 +1,41 @@
+import 'package:farespy/calc_fare.dart';
 import 'package:farespy/paymenttwo.dart';
 import 'package:flutter/material.dart';
 
-class PaymentOne extends StatelessWidget {
-  const PaymentOne({super.key});
+class PaymentOne extends StatefulWidget {
+  const PaymentOne({Key? key}) : super(key: key);
+
+  @override
+  _PaymentOneState createState() => _PaymentOneState();
+}
+
+class _PaymentOneState extends State<PaymentOne> {
+  TextEditingController distanceTextEditingController = TextEditingController();
+  TextEditingController hrTextEditingController = TextEditingController();
+  TextEditingController minTextEditingController = TextEditingController();
+
+  double fare = 0.0;
+  double waitingCharge = 0.0;
+  double totalFare = 0.0;
+  
+
+  void updateFares() {
+  double distance = double.tryParse(distanceTextEditingController.text) ?? 0;
+  double hr = double.tryParse(hrTextEditingController.text) ?? 0;
+  double min = double.tryParse(minTextEditingController.text) ?? 0;
+
+  setState(() {
+    fare = calculateFare(distance);
+    waitingCharge = calculateWaitingCharge(hr, min);
+    totalFare = calculateTotalFare(distance, hr, min);
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {
-    
+
+
     return Scaffold(
       
       body: SafeArea(
@@ -86,18 +115,35 @@ class PaymentOne extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
-                    children: const [
+                    children: [
                       Text(
                         'Distance',
                         style: TextStyle(fontSize: 15),
                       ),
-                      Text(
-                        '20km',
-                        style: TextStyle(
-                          color: Color(0xFF258EAB), // set the text color to blue
-                          fontSize: 24, // set the font size
-                          fontWeight: FontWeight.bold, // set the font weight
-                        ),
+                      Row(
+                        children: [
+                          Container(
+                            //color: Colors.blueAccent,
+                            height: 30,
+                            width: 60,
+                            child: TextField(
+                              controller: distanceTextEditingController,
+                              keyboardType: TextInputType.numberWithOptions(),
+                              decoration: InputDecoration(border: OutlineInputBorder(),),
+                              style: TextStyle(
+                                color: Color(0xFF258EAB), // set the text color to blue
+                                fontSize: 24, // set the font size
+                                fontWeight: FontWeight.bold, // set the font weight
+                              ),
+                              onChanged: (value) => updateFares(),
+                            ),
+                          ),
+                          Text('km',style: TextStyle(
+                                color: Color(0xFF258EAB), // set the text color to blue
+                                fontSize: 24, // set the font size
+                                fontWeight: FontWeight.bold, // set the font weight
+                              ),)
+                        ],
                       ),
                     ],
                   ),
@@ -109,13 +155,14 @@ class PaymentOne extends StatelessWidget {
                   ),
                   const Padding(padding: EdgeInsets.only(left: 50)),
                   Column(
-                    children: const [
+                    //'\u{20B9}${440.00}'
+                    children:[
                       Text(
                         'Fare',
                         style: TextStyle(fontSize: 15),
                       ),
                       Text(
-                        '\u{20B9}${440.00}',
+                        '\u{20B9}${calculateFare(double.tryParse(distanceTextEditingController.text) ?? 0,).toStringAsFixed(2)}',
                         style: TextStyle(
                           color: Color(0xFF258EAB), // set the text color to blue
                           fontSize: 24, // set the font size
@@ -154,18 +201,57 @@ class PaymentOne extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
-                    children: const [
+                    children: [
                       Text(
                         'Time',
                         style: TextStyle(fontSize: 15),
                       ),
-                      Text(
-                        '1hr',
-                        style: TextStyle(
-                          color: Color(0xFF258EAB), // set the text color to blue
-                          fontSize: 24, // set the font size
-                          fontWeight: FontWeight.bold, // set the font weight
-                        ),
+                      Row(
+                        children: [
+                          Container(
+                            //color: Colors.blueAccent,
+                            height: 30,
+                            width: 60,
+                            child: TextField(
+                              controller: hrTextEditingController,
+                              keyboardType: TextInputType.numberWithOptions(),
+                              decoration: InputDecoration(border: OutlineInputBorder(),),
+                              style: TextStyle(
+                                color: Color(0xFF258EAB), // set the text color to blue
+                                fontSize: 24, // set the font size
+                                fontWeight: FontWeight.bold, // set the font weight
+                              ),
+                              onChanged: (value) => updateFares(),
+                            ),
+                          ),
+                          Text('hr',style: TextStyle(
+                                color: Color(0xFF258EAB), // set the text color to blue
+                                fontSize: 24, // set the font size
+                                fontWeight: FontWeight.bold, // set the font weight
+                              ),),
+                              Container(
+                            //color: Colors.blueAccent,
+                            height: 30,
+                            width: 60,
+                            child: TextField(
+                              controller: minTextEditingController,
+                              keyboardType: TextInputType.numberWithOptions(),
+                              decoration: InputDecoration(border: OutlineInputBorder(),),
+                              style: TextStyle(
+                                color: Color(0xFF258EAB), // set the text color to blue
+                                fontSize: 24, // set the font size
+                                fontWeight: FontWeight.bold, // set the font weight
+                              ),
+                              onChanged: (value) => updateFares(),
+                            ),
+                          ),
+                          Text('min',style: TextStyle(
+                                color: Color(0xFF258EAB), // set the text color to blue
+                                fontSize: 24, // set the font size
+                                fontWeight: FontWeight.bold, // set the font weight
+                              ),)
+
+                        ],
                       ),
                     ],
                   ),
@@ -177,13 +263,13 @@ class PaymentOne extends StatelessWidget {
                   ),
                   const Padding(padding: EdgeInsets.only(left: 50)),
                   Column(
-                    children: const [
+                    children: [
                       Text(
                         'Fare',
                         style: TextStyle(fontSize: 15),
                       ),
                       Text(
-                        '\u{20B9}${50.00}',
+                        '\u{20B9}${calculateWaitingCharge(double.tryParse(hrTextEditingController.text) ?? 0,double.tryParse(minTextEditingController.text) ?? 0).toStringAsFixed(2)}',
                         style: TextStyle(
                           color: Color(0xFF258EAB), // set the text color to blue
                           fontSize: 24, // set the font size
@@ -211,12 +297,13 @@ class PaymentOne extends StatelessWidget {
                   ),
                 ],
               ),
-              const Text(
-                '\u{20B9}${490.00}',
+              Text(
+                '\u{20B9}'+ totalFare.toStringAsFixed(2),
                 style: TextStyle(
-                    color: Color(0xFF258EAB),
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold),
+                  color: Color(0xFF258EAB),
+                  fontSize: 48,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               //const Padding(padding: EdgeInsets.only(top: 20)),
               
