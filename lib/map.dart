@@ -6,7 +6,7 @@ import 'package:farespy/Models/direction_details.dart';
 import 'package:farespy/divider_widget.dart';
 import 'package:farespy/search_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+//import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
@@ -353,13 +353,13 @@ class _MapScreenState extends State<MapScreen> {
 
     print("This is encoded pints:: ");
 
-    PolylinePoints polylinePoints = PolylinePoints();
-    List<PointLatLng> decodedPolyLinePointsResult = polylinePoints.decodePolyline(details?.encodedPoints);
-    if(decodedPolyLinePointsResult.isNotEmpty){
-      decodedPolyLinePointsResult.forEach((PointLatLng pointLatLng) { 
-        pLineCoordinates.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
-      });
-    }
+    // PolylinePoints polylinePoints = PolylinePoints();
+    // List<PointLatLng> decodedPolyLinePointsResult = polylinePoints.decodePolyline(details?.encodedPoints);
+    // if(decodedPolyLinePointsResult.isNotEmpty){
+    //   decodedPolyLinePointsResult.forEach((PointLatLng pointLatLng) { 
+    //     pLineCoordinates.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
+    //   });
+    // }
 
     polylineSet.clear();
 
