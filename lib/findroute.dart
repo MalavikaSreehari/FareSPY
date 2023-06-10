@@ -507,24 +507,24 @@ TextEditingController destinationController = TextEditingController();
                 ),
               ),
 
-              Positioned(
-                bottom: 16.0,
-                left: 16.0,
-                height: 40,
-                width: 110,
+              // Positioned(
+              //   bottom: 16.0,
+              //   left: 16.0,
+              //   height: 40,
+              //   width: 110,
 
-                child: ElevatedButton(onPressed: (){
-                  Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => PaymentOne()),
-                        );
+              //   child: ElevatedButton(onPressed: (){
+              //     Navigator.push(
+              //             context,
+              //             MaterialPageRoute(builder: (context) => PaymentOne()),
+              //           );
 
-                },style: ElevatedButton.styleFrom(backgroundColor: Color(0xff93C561)),
-                 child: Text("Get Fare",style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          //fontWeight: FontWeight.bold,
-                        ),),),)
+              //   },style: ElevatedButton.styleFrom(backgroundColor: Color(0xff93C561)),
+              //    child: Text("Get Fare",style: TextStyle(
+              //             color: Colors.white,
+              //             fontSize: 18,
+              //             //fontWeight: FontWeight.bold,
+              //           ),),),)
             ],
           ),
         ),

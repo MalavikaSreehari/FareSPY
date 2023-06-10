@@ -155,6 +155,7 @@ class _FareDisplayState extends State<FareDisplay> {
                           fontSize: 24, // set the font size
                           fontWeight: FontWeight.bold, // set the font weight
                         ),
+                        
                       ),
                     ],
                   )
@@ -285,7 +286,7 @@ class _FareDisplayState extends State<FareDisplay> {
                 ],
               ),
               Text(
-                '\u{20B9}'+ totalFare.toStringAsFixed(2),
+                '\u{20B9}${calculateTotalFare(widget.distance!, double.tryParse(hrTextEditingController.text) ?? 0,double.tryParse(minTextEditingController.text) ?? 0).toStringAsFixed(2)}',
                 style: TextStyle(
                   color: Color(0xFF258EAB),
                   fontSize: 48,
