@@ -11,8 +11,8 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_place/google_place.dart';
 import 'dart:math';
-
 import 'package:location/location.dart' as loc;
+
 
 //import 'package:location/location.dart';
 
@@ -34,39 +34,39 @@ class _LiveLocState extends State<LiveLoc> {
   PolylinePoints polylinePoints = PolylinePoints();
   late CameraPosition _initialPosition;
   double distance = 0.0;
-  Location location = Location();
+  
   
 
   loc.LocationData? currentLocation;
 
   
   
-//   void getCurrentLocation() async {
-//     Location location = Location();
-// location.getLocation().then(
-//       (location) {
-//         currentLocation = location;
-//       },
-//     );
-// GoogleMapController googleMapController = await _controller.future;
-// location.onLocationChanged.listen(
-//       (newLoc) {
-//         currentLocation = newLoc;
-// googleMapController.animateCamera(
-//           CameraUpdate.newCameraPosition(
-//             CameraPosition(
-//               zoom: 13.5,
-//               target: LatLng(
-//                 newLoc.latitude!,
-//                 newLoc.longitude!,
-//               ),
-//             ),
-//           ),
-//         );
-// setState(() {});
-//       },
-//     );
-//   }
+  void getCurrentLocation() async {
+    loc.Location location = loc.Location();
+location.getLocation().then(
+      (location) {
+        currentLocation = location;
+      },
+    );
+GoogleMapController googleMapController = await _controller.future;
+location.onLocationChanged.listen(
+      (newLoc) {
+        currentLocation = newLoc;
+googleMapController.animateCamera(
+          CameraUpdate.newCameraPosition(
+            CameraPosition(
+              zoom: 13.5,
+              target: LatLng(
+                newLoc.latitude!,
+                newLoc.longitude!,
+              ),
+            ),
+          ),
+        );
+setState(() {});
+      },
+    );
+  }
   
 
   _addPolyLine() {
@@ -119,6 +119,8 @@ class _LiveLocState extends State<LiveLoc> {
   
   @override
   void initState() {
+    _getPolyline();
+    getCurrentLocation();
     super.initState();
     _initialPosition = CameraPosition(
         target: LatLng(widget.startPoint!.geometry!.location!.lat!,
@@ -128,6 +130,11 @@ class _LiveLocState extends State<LiveLoc> {
 
   Widget build(BuildContext context) {
     Set<Marker> _markers = {
+      Marker(
+          markerId: const MarkerId("currentLocation"),
+          position: LatLng(
+              currentLocation!.latitude!, currentLocation!.longitude!),
+        ),
     Marker(markerId: MarkerId('start'),
     position: LatLng(widget.startPoint!.geometry!.location!.lat!, widget.startPoint!.geometry!.location!.lng!)),
     Marker(markerId: MarkerId('end'),
@@ -136,7 +143,11 @@ class _LiveLocState extends State<LiveLoc> {
     return Scaffold(
       body: SafeArea(
         child: Stack(
-          children:[ GoogleMap(initialCameraPosition: _initialPosition,
+          children:[ GoogleMap(initialCameraPosition: CameraPosition(
+        target: LatLng(
+            currentLocation!.latitude!, currentLocation!.longitude!),
+        zoom: 13.5,
+      ),
           polylines: Set<Polyline>.of(polylines.values),
           zoomControlsEnabled: false,
           markers: Set.from(_markers),
