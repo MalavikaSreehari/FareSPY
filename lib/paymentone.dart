@@ -125,8 +125,9 @@ class _PaymentOneState extends State<PaymentOne> {
                           Container(
                             //color: Colors.blueAccent,
                             height: 30,
-                            width: 60,
+                            width: 100,
                             child: TextField(
+                              
                               controller: distanceTextEditingController,
                               keyboardType: TextInputType.numberWithOptions(),
                               decoration: InputDecoration(border: OutlineInputBorder(),),

@@ -55,13 +55,22 @@ class HomePage extends StatelessWidget {
                       ]
                     ),
                     child: 
-                        Center(
-                          child: Text(
-                            'Get Fare',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(0xFF258EAB)
-                            ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Image.asset('assets/images/getfare.png'),
+                              //SizedBox(height: 20,),
+                              Text(
+                                'Get Fare',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xFF258EAB)
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         
@@ -100,14 +109,18 @@ class HomePage extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => (FindRoute())),
                         );
                       }, child: 
-                          Center(
-                            child: Text(
-                            'Find Route',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(0xFF258EAB)
-                            ),
-                                                  ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Image.asset('assets/images/newroute.png',height: 70,),
+                              Text(
+                              'Find Route',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Color(0xFF258EAB)
+                              ),
+                                                    ),
+                            ],
                           ),
                         
                        
