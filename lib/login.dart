@@ -6,6 +6,9 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+
 
 
 
@@ -159,7 +162,8 @@ class Login extends StatelessWidget {
                 email: emailTextEditingController.text,
                 password: passwordTextEditingController.text,
               );
-              
+              SharedPreferences pref =await SharedPreferences.getInstance();
+            pref.setString("email", "useremail@gmail.com");
               Navigator.pushNamed(context, HomePage.idScreen);
             } on FirebaseAuthException catch (e) {
               if (e.code == 'user-not-found' || e.code == 'wrong-password') {

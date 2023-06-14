@@ -48,6 +48,8 @@ dependencies:
   google_place: ^0.4.7
   flutter_polyline_points: ^1.0.0
   location: ^4.4.0
+  shared_preferences: ^2.1.2
+  geodesy: ^0.3.2
 
   
   uuid: ^3.0.4

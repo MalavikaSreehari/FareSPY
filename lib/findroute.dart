@@ -6,6 +6,7 @@ import 'package:farespy/DataHandler/app_data.dart';
 import 'package:farespy/Models/direction_details.dart';
 import 'package:farespy/divider_widget.dart';
 import 'package:farespy/global/config_maps.dart';
+import 'package:farespy/login.dart';
 import 'package:farespy/paymentone.dart';
 import 'package:farespy/search_page.dart';
 import 'package:farespy/show_direction.dart';
@@ -15,6 +16,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_place/google_place.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class FindRoute extends StatefulWidget {
@@ -241,7 +243,11 @@ TextEditingController destinationController = TextEditingController();
                 ),
                 ListTile(
                   leading: Icon(Icons.info),
-                  title: Text("About"),
+                  title: TextButton(onPressed: () async{
+                    SharedPreferences pref = await SharedPreferences.getInstance();
+            pref.remove("email");
+            Navigator.pushNamed(context, Login.idScreen);
+                  }, child: Text("Logout")),
                 ),
               ],
             ),
